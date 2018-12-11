@@ -64,7 +64,7 @@ export default {
                     this.global_data.spy_win = 0;
                     console.log('Spy lost');
                     this.$router.push('/gameover')
-                } else if(this.global.people_number - this.killed_man.length <= 3) {
+                } else if(this.global.people_number - this.killed_man.length <= 2) {
                     this.game_over = 2;
                     this.global_data.spy_win = 1;
                     console.log('Spy won');

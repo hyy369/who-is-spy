@@ -67,12 +67,12 @@ export default {
         ['Sushi', 'Sashimi'],
         ['Spaghetti','Pasta'],
         ['Programmer','Engineer'],
-        ['Instagram','Facebook'],
-        ['Uber', 'Lyft'],
-        ['Maroon 5', 'One Republic'],
-        ['Cocacola','Pepsi'],
-        ['TTYL','BRB'],
-        ['Siri', 'Alexa']
+        // ['Instagram','Facebook'],
+        // ['Uber', 'Lyft'],
+        // ['Maroon 5', 'One Republic'],
+        // ['Cocacola','Pepsi'],
+        // ['TTYL','BRB'],
+        // ['Siri', 'Alexa']
       ],
       see_rule: 0,
     }
