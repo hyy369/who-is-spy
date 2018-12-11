@@ -6,7 +6,7 @@
     </div>
     <br>
     <div class="play-number">
-      <h3>Play: {{number}}</h3>
+      <h3>Number of players: {{number}}</h3>
     </div>
     <br>
     <input type="range" name="points" v-model="number" min="4" max="9" class="weui-slider__inner">
@@ -14,23 +14,23 @@
     <div class="weui-flex">
       <div class="weui-flex__item">
         <h3>
-          Spy: {{spy_number}}
+          Number of spy: {{spy_number}}
         </h3>
       </div>
        
       <div class="weui-flex__item">
         <h3>
-          Innocent: {{number - spy_number}}
+          Number of Innocent(s): {{number - spy_number}}
         </h3>
       </div>
     </div>
     <br>
-    <button type="button" @click="click_ok" class="weui-btn weui-btn_primary">ok</button>
+    <button type="button" @click="click_ok" class="weui-btn weui-btn_primary">Start</button>
     <br>
     <div class="weui-flex">
       <div class="weui-flex__item">
         <h3>
-          WhiteBoard:
+          Enable whiteboard:
         </h3>
       </div>
        
@@ -39,6 +39,11 @@
           <input class="weui-switch" type="checkbox" v-model="need_white"/>
         </h3>
       </div>
+    </div>
+    <button type="button" @click="show_rules" class="weui-btn weui-btn_default">{{see_rule?'Hide the Rules':' Learn the Rules'}}</button>
+    <div class="weui-flex" :class="{hidden: !see_rule}">
+      <img class="rule_image" src="https://busyteacher.org/uploads/posts/2016-07/1467664165_bt-submission-dnisbet-game-who-is-the-spy-0.png"  alt="" srcset="">
+      <p> Image source: busyteacher.org (https://busyteacher.org/24039-who-is-the-spy-talking-game.html)</p>
     </div>
   </div>
 </template>
@@ -57,7 +62,8 @@ export default {
         ['Pocket money','Salary'],
         ['Florida', 'California'],
         ['Father', 'Mother']
-      ]
+      ],
+      see_rule: 0,
     }
   },
   methods: {
@@ -91,6 +97,9 @@ export default {
 
       })
       this.$router.push('confirm')
+    },
+    show_rules: function() {
+      this.see_rule = !this.see_rule
     }
   }
 };
@@ -105,6 +114,9 @@ export default {
 }
 .play-number {
   text-align: center;
+}
+.hidden {
+  display: none;
 }
 input[type="range"] {
   display: block;

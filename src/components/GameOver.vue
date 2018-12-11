@@ -4,12 +4,12 @@
         <br>
         <h2>Game Over</h2>
         <br>
-        <h3>{{spy_win?'Spy Win':'Spy Not Win'}}</h3>
+        <h3>{{spy_win?'Spy Won':'Spy Lost'}}</h3>
         <br>
         <div class="weui-flex">
             <div class="weui-flex__item"></div>
             <div class="weui-flex__item">
-                <button type="button" class="weui-btn weui-btn_default" @click="next_row">Next</button>
+                <button type="button" class="weui-btn weui-btn_default" @click="next_row">New Game</button>
             </div>
             <div class="weui-flex__item"></div>
         </div>

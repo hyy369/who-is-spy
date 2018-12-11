@@ -2,10 +2,16 @@
     <div>
         <div class="weui-flex">
             <div class="weui-flex__item">
-                <button type="button" class="weui-btn weui-btn_default" @click="see_all_role">{{see_all?'Close':'See'}}</button>
+                <button type="button" class="weui-btn weui-btn_default" @click="see_all_role">{{see_all?'Close':'Reveal'}}</button>
             </div>
-            <div class="weui-flex__item"></div>
-            <div class="weui-flex__item"><button type="button" class="weui-btn weui-btn_primary" @click="begin_kill">Kill</button></div>
+            <div class="weui-flex__item">
+                <button type="button" class="weui-btn weui-btn_default" @click="see_rules">{{see_rule?'Hide the Rules':' Learn the Rules'}}</button>
+            </div>
+            <div class="weui-flex__item"><button type="button" class="weui-btn weui-btn_primary" @click="begin_kill">Eliminate</button></div>
+        </div>
+        <div class="weui-flex" :class="{hidden: !see_rule}">
+            <img class="rule_image" src="https://busyteacher.org/uploads/posts/2016-07/1467664165_bt-submission-dnisbet-game-who-is-the-spy-0.png"  alt="" srcset="">
+            <p> Image source: busyteacher.org (https://busyteacher.org/24039-who-is-the-spy-talking-game.html)</p>
         </div>
         <br>
         <div class="weui-flex" v-for="bitem in [0, 1, 2]" :key="bitem">
@@ -43,7 +49,8 @@ export default {
             kill_flag: 0,
             daughter_bgc: ['white', '#F76260', '#909090'],
             man_status: [0,0,0,0,0,0,0,0,0],
-            game_over: 0
+            game_over: 0,
+            see_rule: 0,
         }
     },
     methods: {
@@ -55,12 +62,12 @@ export default {
                 if(this.global.assignment[index] == 1) {
                     this.game_over = 1;
                     this.global_data.spy_win = 0;
-                    console.log('Spy no win');
+                    console.log('Spy lost');
                     this.$router.push('/gameover')
                 } else if(this.global.people_number - this.killed_man.length <= 3) {
                     this.game_over = 2;
                     this.global_data.spy_win = 1;
-                    console.log('Spy win');
+                    console.log('Spy won');
                     this.$router.push('/gameover')
                 }
                 this.man_status[index] = 1;
@@ -75,6 +82,9 @@ export default {
         },
         see_all_role: function() {
             this.see_all = !this.see_all;
+        },
+        see_rules: function() {
+            this.see_rule = !this.see_rule;
         }
     },
     beforeMount: function () {
@@ -104,6 +114,6 @@ export default {
 }
 .image {
     width: 90%;
-    height: 86px;
+    height: 90%;
 }
 </style>

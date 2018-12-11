@@ -6,28 +6,28 @@
             <div class="placeholder-block">
 
             </div>
-            <h2 class="title">Player: {{now_number}}</h2>
+            <h2 class="title">Player {{now_number}}</h2>
             <br>
             <div>
                 <button @click="isme_click" type="button" class="weui-btn weui-btn_default" :class="{
                     'weui-btn_default' : disable_button > 0
-                }">{{disable_button > 0? 'Waiting for ' + disable_button + ' second':'Yes. It\'s Me'}}</button>
+                }">{{disable_button > 0? 'Please wait for ' + disable_button + ' second(s)':'Yes. I am Player ' + now_number +'.'}}</button>
             </div>
         </div>
         <div class="role" :class="{
             hidden: !display_role
         }">
             <div class="placeholder-block"></div>
-            <h2 class="title">Player {{now_number}}'s</h2>
+            <h2 class="title">Player {{now_number}}</h2>
             <br>
             <div class="display-image">
                 <img class="in-image" :src="player_info.url" alt="">
             </div>
             <br>
-            <h3 class="title">Your word is {{player_info.word}}</h3>
+            <h3 class="title">Your word is "{{player_info.word}}"</h3>
             <br>
             <div>
-                <button @click="next_click" type="button" class="weui-btn weui-btn_default">Ok. I Get</button>
+                <button @click="next_click" type="button" class="weui-btn weui-btn_default">I got it!</button>
             </div>
         </div>
     </div>
@@ -96,8 +96,8 @@ export default {
     text-align: center;
 }
 .display-image {
-    height: 200px;
-    width: 200px;
+    /* height: 200px; */
+    width: 400px;
     border-color: beige;
     border-width: 2px;
     border-radius: 10px;
