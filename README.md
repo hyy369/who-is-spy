@@ -4,6 +4,8 @@
 
 ## Build Setup
 
+You need to install Node.js from nodejs.org, then `cd` to this directory and perform the following prompts:
+
 ``` bash
 # install dependencies
 npm install
