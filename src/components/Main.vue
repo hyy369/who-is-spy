@@ -25,8 +25,6 @@
       </div>
     </div>
     <br>
-    <button type="button" @click="click_ok" class="weui-btn weui-btn_primary">Start</button>
-    <br>
     <div class="weui-flex">
       <div class="weui-flex__item">
         <h3>
@@ -40,6 +38,9 @@
         </h3>
       </div>
     </div>
+    <br>
+      <button type="button" @click="click_ok" class="weui-btn weui-btn_primary">Start</button>
+      <br>
     <button type="button" @click="show_rules" class="weui-btn weui-btn_default">{{see_rule?'Hide the Rules':' Learn the Rules'}}</button>
     <div class="weui-flex" :class="{hidden: !see_rule}">
       <img class="rule_image" src="https://busyteacher.org/uploads/posts/2016-07/1467664165_bt-submission-dnisbet-game-who-is-the-spy-0.png"  alt="" srcset="">
